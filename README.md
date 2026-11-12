@@ -4,7 +4,7 @@
 
 ## Состав проекта
 
-- `data/DZ_user_actions.csv` — исходные данные (10 000 строк).
+- `data/DZ_user_actions.csv` — исходные данные (локальный файл, в публичный репозиторий не загружен).
 - `src/pipeline.py` — единый воспроизводимый ETL и аналитический пайплайн.
 - `sql/metrics.sql` — запросы для ключевых показателей.
 - `dags/analytics_dag.py` — DAG Airflow с ежедневным запуском.
@@ -30,6 +30,10 @@ python src/pipeline.py --input data/DZ_user_actions.csv --output output
 ```
 
 После запуска появятся `output/analytics.db`, `output/метрики_аналитики.xlsx` и `output/отчёт.html`. Откройте HTML в браузере. Графики Plotly загружаются с CDN, поэтому для отображения графиков нужен доступ к интернету.
+
+### Подготовка исходного CSV
+
+Чтобы повторить расчёт, скачайте исходный файл по [ссылке из задания](https://drive.google.com/file/d/1y6OivwORg-eihHJQD6ttuz_O1B6HgxV0/view?usp=sharing) и сохраните его как `data/DZ_user_actions.csv`. Сам CSV и построчная SQLite-база исключены из публичного репозитория, поскольку содержат пользовательские события. После добавления файла запустите команду пайплайна выше.
 
 ## Запуск Airflow через Docker Compose
 
